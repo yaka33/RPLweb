@@ -48,23 +48,29 @@ header {
 
 /* Adding Project Title via CSS Pseudo-element for a site-wide appearance */
 header::before {
-    content: "INNOVATIVE RESEARCH PROJECT";
-    display: inline-block; /* Changed to inline-block for width: fit-content behavior */
+    content: "A Lightweight Trust Management Framework in\A the Networking Layer of IoT Devices\A 25_26J_009";
+    display: inline-block; 
+    white-space: pre-wrap; /* Enable rendering of the \A line breaks */
     color: var(--white);
     font-family: Georgia, serif;
     font-size: 2.2rem;
     letter-spacing: 1px;
     margin-bottom: 30px;
     padding-bottom: 12px;
-    border-bottom: 3px solid var(--accent); /* The gold line now directly below title */
 }
 
 /* Navigation Bar */
 nav {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
-    gap: 12px;
+    gap: 8px;
     flex-wrap: wrap;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px 20px;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    margin-top: 10px;
 }
 
 nav a {
@@ -127,7 +133,7 @@ section h2 {
 }
 
 /* Cards */
-.card, .member-card, .contact-form, .doc-list li {
+.card, .contact-form, .doc-list li {
     background-color: var(--white);
     border-radius: var(--radius);
     padding: 20px;
@@ -136,8 +142,17 @@ section h2 {
     transition: transform 0.2s ease;
 }
 
-.card:hover, .member-card:hover {
-    transform: translateY(-2px);
+.member-card {
+    background-color: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    transition: transform 0.2s ease;
+    overflow: hidden; /* To keep images within rounded corners */
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
 }
 
 .card-grid, .member-grid {
@@ -264,17 +279,32 @@ ul.doc-list li {
     color: white;
 }
 
-/* Member Photos */
-.member-photo {
-    width: 100px;
-    height: 100px;
-    background-color: var(--background);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    margin: 0 auto 15px;
+/* Member Photos & Cards */
+.member-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.member-card:hover .member-image img {
+    transform: scale(1.05);
+}
+
+.member-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.member-info h3 {
+    margin-bottom: 5px;
+    color: var(--primary);
 }
 
 /* Footer */
@@ -300,7 +330,12 @@ footer p {
     
     nav {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
+        border-radius: 15px;
+        display: flex;
+        width: fit-content;
+        margin: 20px auto 0;
+        padding: 10px;
     }
     
     nav a {
