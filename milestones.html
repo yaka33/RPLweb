@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milestones | Project Website</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="domain.html">Domain</a>
+                <a href="milestones.html" class="active">Milestones</a>
+                <a href="documents.html">Documents</a>
+                <a href="presentations.html">Presentations</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Project Milestones</h2>
+                    <p>Tracking our progress through various assessment stages.</p>
+                </div>
+
+                <div style="margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;">
+                    <label for="milestone-filter" style="font-weight: 600;">View Milestone:</label>
+                    <select id="milestone-filter" style="max-width: 250px;">
+                        <option value="all">All Milestones</option>
+                        <option value="proposal">Project Proposal</option>
+                        <option value="progress1">Progress Presentation 1</option>
+                        <option value="progress2">Progress Presentation 2</option>
+                        <option value="final">Final Assessment</option>
+                        <option value="viva">Viva</option>
+                    </select>
+                </div>
+
+                <div class="card">
+                    <table class="milestone-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment Name</th>
+                                <th>Date</th>
+                                <th>Marks Allocated</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Project Proposal</td>
+                                <td>March 15, 2026</td>
+                                <td>10%</td>
+                                <td><span class="badge badge-available">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>Progress Presentation 1</td>
+                                <td>May 20, 2026</td>
+                                <td>15%</td>
+                                <td><span class="badge badge-available">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>Progress Presentation 2</td>
+                                <td>August 10, 2026</td>
+                                <td>20%</td>
+                                <td><span class="badge badge-pending">Upcoming</span></td>
+                            </tr>
+                            <tr>
+                                <td>Final Assessment</td>
+                                <td>October 05, 2026</td>
+                                <td>40%</td>
+                                <td><span class="badge badge-pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>Viva</td>
+                                <td>October 20, 2026</td>
+                                <td>15%</td>
+                                <td><span class="badge badge-pending">Pending</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card-grid" style="margin-top: 4rem;">
+                    <div class="card">
+                        <h3>Project Proposal</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                            labore.</p>
+                        <p><strong>Dec 2025 | 10%</strong></p>
+                    </div>
+                    <div class="card">
+                        <h3>Final Assessment</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo.</p>
+                        <p><strong>Oct 2026 | 40%</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 25_26J_009 Research Project Team. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
