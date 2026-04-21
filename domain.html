@@ -27,56 +27,88 @@
     <main>
         <section>
             <div class="container">
-                <div class="section-title">
+                <div class="card" style="margin-bottom: 2rem;">
                     <h2>Research Domain</h2>
-                    <p>Detailed insight into our research focus and methodology.</p>
+                    <p>This research focuses on improving trust and security in IoT networks, particularly in environments where data is transmitted through untrusted or intermediate nodes. IoT devices are often resource-constrained and operate in dynamic environments, making them vulnerable to attacks such as data manipulation, selective forwarding, and malicious node behavior.</p>
+                    <p style="margin-top: 1rem;">The study explores how lightweight trust mechanisms can be integrated into the networking layer to ensure reliable communication while maintaining energy efficiency. The proposed solution aims to enhance routing decisions by incorporating trust metrics, enabling IoT systems to operate securely without adding significant computational overhead.</p>
                 </div>
 
                 <div class="card" style="margin-bottom: 2rem;">
                     <h2>Literature Survey</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit
-                        arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.
-                        Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.
-                        Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus
-                        massa, ut blandit odio.</p>
+                    <p>Existing research highlights several trust-based routing mechanisms for IoT and RPL networks. Studies such as THC-RPL (2022) introduced trust computation techniques to detect malicious nodes, while FSRW (2024) applied fuzzy logic and optimization algorithms to improve routing reliability. Additionally, recent approaches like RSOF (2025) focus on combining trust with routing metrics such as ETX to enhance decision-making.</p>
+                    <p style="margin-top: 1rem;">However, many existing solutions rely on complex computations, high energy consumption, or static trust models, making them unsuitable for constrained IoT devices. While these methods improve security, they often compromise network lifetime and scalability.</p>
                 </div>
 
                 <div class="card" style="margin-bottom: 2rem;">
                     <h2>Research Gap</h2>
-                    <p>Donec consequat magna vitae enim hendrerit, ac interdum nisl varius. Sed at eros a tellus
-                        facilisis efficitur. Integer quis velit at leo volutpat semper. Proin sit amet velit nec tellus
-                        imperdiet varius a vel elit. Nam vitae nunc ut purus vehicula lacinia. Proin egestas interdum
-                        nulla, ut commodo diam scelerisque vitae.</p>
+                    <p>Despite advancements in trust-based routing, several limitations remain:</p>
+                    <ul style="padding-left: 20px; color: var(--text); margin-top: 1rem;">
+                        <li>Lack of energy-efficient trust computation mechanisms</li>
+                        <li>Heavy reliance on complex algorithms unsuitable for low-power devices</li>
+                        <li>Absence of adaptive trust update mechanisms based on network conditions</li>
+                        <li>Limited integration of multiple trust metrics in a lightweight manner</li>
+                    </ul>
+                    <p style="margin-top: 1rem;">These gaps highlight the need for a lightweight, adaptive, and energy-aware trust management system that can operate efficiently in real-world IoT environments.</p>
                 </div>
 
                 <div class="card" style="margin-bottom: 2rem;">
                     <h2>Research Problem</h2>
-                    <p>Phasellus eget purus id felis efficitur interdum. Maecenas scelerisque, turpis sed tincidunt
-                        pretium, magna augue interdum nisl, quis accumsan velit neque vel magna. Sed vel felis id magna
-                        porta hendrerit. Etiam placerat lectus vel neque euismod mollis. Donec elementum sollicitudin
-                        urna, id interdum massa iaculis et.</p>
+                    <p>IoT networks often rely on intermediate nodes to forward data, but these nodes may behave maliciously or unreliably. Existing routing protocols such as RPL do not adequately evaluate the trustworthiness of nodes, leading to potential data loss, manipulation, or security breaches.</p>
+                    <p style="margin-top: 1.5rem; text-align: center; font-size: 1.1rem;">
+                        <i><b>"The key problem addressed in this research is: How to design a lightweight and energy-efficient trust management framework that ensures reliable data transmission in IoT networks while minimizing computational overhead?"</b></i>
+                    </p>
                 </div>
 
                 <div class="card" style="margin-bottom: 2rem;">
                     <h2>Research Objectives</h2>
-                    <p>Curabitur nec elit ut erat interdum mollis. Ut id erat id lorem aliquet euismod. Integer ut nulla
-                        quis metus interdum hendrerit. Aenean vehicula, mi vel congue lacinia, sem arcu tristique magna,
-                        a facilisis lorem sem nec nulla. Sed vel felis id magna porta hendrerit.</p>
+                    <h3 style="color: var(--primary); margin-top: 1rem;">Main Objective:</h3>
+                    <p>To develop a lightweight trust management framework for IoT networks that enhances secure and reliable data transmission.</p>
+                    
+                    <h3 style="color: var(--primary); margin-top: 1.5rem;">Specific Objectives:</h3>
+                    <ul style="padding-left: 20px; color: var(--text); margin-top: 0.5rem;">
+                        <li>Design lightweight trust metrics (Residual Energy, Temperature, Historical Observation, Trust Accuracy)</li>
+                        <li>Develop an adaptive trust computation mechanism</li>
+                        <li>Implement energy-aware trust update scheduling</li>
+                        <li>Integrate trust into routing decisions (RPL-based)</li>
+                        <li>Evaluate performance using simulation tools (Cooja / Contiki-NG)</li>
+                    </ul>
                 </div>
 
                 <div class="card" style="margin-bottom: 2rem;">
                     <h2>Methodology</h2>
-                    <p>Ut id erat id lorem aliquet euismod. Integer ut nulla quis metus interdum hendrerit. Aenean
-                        vehicula, mi vel congue lacinia, sem arcu tristique magna, a facilisis lorem sem nec nulla. Sed
-                        vel felis id magna porta hendrerit. Donec elementum sollicitudin urna, id interdum massa iaculis
-                        et. Curabitur nec elit ut erat interdum mollis.</p>
+                    <p>The proposed system introduces a Trust Computation Engine (TCE) that evaluates node behavior using multiple lightweight metrics. Each node calculates a trust score based on factors such as residual energy, historical performance, and environmental conditions.</p>
+                    
+                    <div style="margin-top: 1.5rem;">
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 1rem;">
+                                <strong>Metric Collection:</strong> Nodes monitor parameters such as energy usage, packet forwarding behavior, and temperature.
+                            </li>
+                            <li style="margin-bottom: 1rem;">
+                                <strong>Trust Calculation:</strong> A weighted formula is used to compute trust values dynamically.
+                            </li>
+                            <li style="margin-bottom: 1rem;">
+                                <strong>Adaptive Scheduling:</strong> Trust computation frequency is adjusted based on node energy levels to reduce overhead.
+                            </li>
+                            <li style="margin-bottom: 1rem;">
+                                <strong>Routing Integration:</strong> Trust values are incorporated into RPL routing decisions to avoid unreliable nodes.
+                            </li>
+                            <li style="margin-bottom: 1rem;">
+                                <strong>Simulation & Evaluation:</strong> The system is tested in Contiki-NG/Cooja to measure performance metrics such as Packet Delivery Ratio (PDR), latency, and energy consumption.
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="card">
                     <h2>Technologies Used</h2>
-                    <p>Integer ut nulla quis metus interdum hendrerit. Aenean vehicula, mi vel congue lacinia, sem arcu
-                        tristique magna, a facilisis lorem sem nec nulla. Sed vel felis id magna porta hendrerit. Donec
-                        elementum sollicitudin urna, id interdum massa iaculis et.</p>
+                    <ul style="padding-left: 20px; color: var(--text); margin-top: 1rem;">
+                        <li><strong>Contiki-NG:</strong> IoT operating system for simulation</li>
+                        <li><strong>Cooja Simulator:</strong> Network simulation environment</li>
+                        <li><strong>C Programming:</strong> Implementation of trust algorithms</li>
+                        <li><strong>RPL Protocol:</strong> Routing protocol for IoT networks</li>
+                        <li><strong>Energest Module:</strong> Energy consumption tracking</li>
+                        <li><strong>Simple UDP:</strong> Communication between nodes</li>
+                    </ul>
                 </div>
             </div>
         </section>

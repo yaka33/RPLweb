@@ -322,8 +322,160 @@ footer p {
     opacity: 0.8;
 }
 
+/* Dropdown Accordions */
+details.research-papers, details.checklists {
+    width: 100%;
+    background-color: var(--white);
+    border-radius: var(--radius);
+    padding: 0;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border: 1px solid #e1e1e1;
+}
+
+details.research-papers summary, details.checklists summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 25px;
+    background-color: #fdfdfd; /* Off-white */
+    color: var(--primary);
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+details.research-papers[open] summary, details.checklists[open] summary {
+    border-bottom: 1px solid #eee;
+    background-color: #f8f8f8;
+}
+
+details.research-papers summary:hover, details.checklists summary:hover {
+    background-color: #f5f5f5;
+}
+
+details.research-papers summary::after, details.checklists summary::after {
+    content: '▼';
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+    color: var(--accent);
+}
+
+details.research-papers[open] summary::after, details.checklists[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.papers-container {
+    padding: 10px;
+}
+
+.dropdown-border-box {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    margin: 5px;
+    padding: 5px;
+    background-color: transparent;
+}
+
+.checklist-section-title {
+    padding: 15px 20px 5px;
+    color: var(--secondary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.paper-item {
+    padding: 12px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.paper-item:last-child {
+    border-bottom: none;
+}
+
+.paper-details {
+    flex: 1;
+}
+
+.paper-title {
+    color: var(--primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.paper-author {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.paper-author a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.paper-author a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.paper-dept {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Nested Accordions */
+details.nested-checklist {
+    border-bottom: 1px solid #eee;
+}
+
+details.nested-checklist:last-child {
+    border-bottom: none;
+}
+
+details.nested-checklist summary {
+    background-color: transparent !important;
+    padding: 12px 20px !important;
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    color: var(--secondary) !important;
+    border-bottom: none !important;
+}
+
+details.nested-checklist summary:hover {
+    background-color: #f9f9f9 !important;
+}
+
+details.nested-checklist[open] summary {
+    color: var(--primary) !important;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
+    .paper-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .paper-item .badge {
+        width: 100%;
+        text-align: center;
+    }
+    
     header::before {
         font-size: 1.5rem;
     }
