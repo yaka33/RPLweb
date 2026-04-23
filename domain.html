@@ -29,86 +29,134 @@
             <div class="container">
                 <div class="card" style="margin-bottom: 2rem;">
                     <h2>Research Domain</h2>
-                    <p>This research focuses on improving trust and security in IoT networks, particularly in environments where data is transmitted through untrusted or intermediate nodes. IoT devices are often resource-constrained and operate in dynamic environments, making them vulnerable to attacks such as data manipulation, selective forwarding, and malicious node behavior.</p>
-                    <p style="margin-top: 1rem;">The study explores how lightweight trust mechanisms can be integrated into the networking layer to ensure reliable communication while maintaining energy efficiency. The proposed solution aims to enhance routing decisions by incorporating trust metrics, enabling IoT systems to operate securely without adding significant computational overhead.</p>
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Internet of Things (IoT) Network Security — RPL Routing Protocol Trust Management</h3>
+                    <p>This research sits at the intersection of embedded systems security, wireless sensor network protocols, and distributed trust management. Specifically, it addresses security vulnerabilities in IPv6 Routing Protocol for Low-Power and Lossy Networks (RPL), the IETF-standardized routing protocol for IEEE 802.15.4 IoT networks, operating on resource-constrained nodes with as little as 32KB RAM and 8MHz CPU.</p>
                 </div>
 
                 <div class="card" style="margin-bottom: 2rem;">
                     <h2>Literature Survey</h2>
-                    <p>Existing research highlights several trust-based routing mechanisms for IoT and RPL networks. Studies such as THC-RPL (2022) introduced trust computation techniques to detect malicious nodes, while FSRW (2024) applied fuzzy logic and optimization algorithms to improve routing reliability. Additionally, recent approaches like RSOF (2025) focus on combining trust with routing metrics such as ETX to enhance decision-making.</p>
-                    <p style="margin-top: 1rem;">However, many existing solutions rely on complex computations, high energy consumption, or static trust models, making them unsuitable for constrained IoT devices. While these methods improve security, they often compromise network lifetime and scalability.</p>
+                    <p>Existing research on RPL security has largely followed two directions. The first involves cryptographic approaches using digital signatures or message authentication codes to verify routing advertisements. While effective, these approaches impose prohibitive computational and memory overhead on constrained IoT devices. The second direction explores trust-based routing extensions to RPL, where neighbor trust scores influence parent selection.</p>
+                    <p style="margin-top: 1rem;">Notable works include <strong>THC-RPL (Mushtaq et al., 2022)</strong>, which introduced lightweight trust-enabled routing against Sybil attacks, and <strong>Zhou et al. (2025)</strong>, who proposed a reliable trust objective function for RPL. Fuzzy logic approaches such as <strong>FSRW (Singh & Kaur, 2024)</strong> combined trust with optimization algorithms for healthcare IoT. In the intrusion detection space, <strong>Khan et al. (2023)</strong> surveyed computational intelligence techniques for WSN intrusion detection, while self-healing frameworks such as <strong>Antilizer (Mbarek et al., 2018)</strong> explored runtime security repair for wireless sensor networks.</p>
+                    <p style="margin-top: 1rem; border-left: 4px solid var(--accent); padding-left: 1rem; font-style: italic;">However, a critical gap persists: no existing lightweight framework simultaneously addresses trust computation, attack detection, distributed isolation, and trust-aware routing enforcement within a single, energy-adaptive, fully distributed architecture targeting Contiki-NG RPL networks.</p>
                 </div>
 
                 <div class="card" style="margin-bottom: 2rem;">
                     <h2>Research Gap</h2>
-                    <p>Despite advancements in trust-based routing, several limitations remain:</p>
-                    <ul style="padding-left: 20px; color: var(--text); margin-top: 1rem;">
-                        <li>Lack of energy-efficient trust computation mechanisms</li>
-                        <li>Heavy reliance on complex algorithms unsuitable for low-power devices</li>
-                        <li>Absence of adaptive trust update mechanisms based on network conditions</li>
-                        <li>Limited integration of multiple trust metrics in a lightweight manner</li>
+                    <p>Current solutions for RPL security suffer from one or more of the following limitations:</p>
+                    <ul style="padding-left: 20px; color: var(--text); margin-top: 1rem; line-height: 1.6;">
+                        <li><strong>Single Attack Focus</strong> — They address only one attack type (e.g., Sybil or Sinkhole) rather than simultaneous multi-vector attacks</li>
+                        <li><strong>Centralized Dependency</strong> — They require centralized components (base station or sink) that become single points of failure</li>
+                        <li><strong>Computational Intensity</strong> — They use ML-based detection that is computationally infeasible on nodes with 32KB RAM</li>
+                        <li><strong>Static Models</strong> — They apply static trust computations without considering real-time energy constraints or hardware health</li>
+                        <li><strong>Lack of Feedback Loop</strong> — Trust scores are computed but not fed back into the routing protocol's objective function</li>
+                        <li><strong>No Recovery Path</strong> — Once a node is penalised, there is no mechanism for it to return to a trusted status</li>
                     </ul>
-                    <p style="margin-top: 1rem;">These gaps highlight the need for a lightweight, adaptive, and energy-aware trust management system that can operate efficiently in real-world IoT environments.</p>
+                    <p style="margin-top: 1rem; font-weight: 600; color: var(--primary);">No existing work integrates multi-metric trust computation, statistical IDS, distributed consensus-based isolation, and a custom RPL Objective Function into a single, energy-adaptive, self-healing framework.</p>
                 </div>
 
                 <div class="card" style="margin-bottom: 2rem;">
                     <h2>Research Problem</h2>
-                    <p>IoT networks often rely on intermediate nodes to forward data, but these nodes may behave maliciously or unreliably. Existing routing protocols such as RPL do not adequately evaluate the trustworthiness of nodes, leading to potential data loss, manipulation, or security breaches.</p>
-                    <p style="margin-top: 1.5rem; text-align: center; font-size: 1.1rem;">
-                        <i><b>"The key problem addressed in this research is: How to design a lightweight and energy-efficient trust management framework that ensures reliable data transmission in IoT networks while minimizing computational overhead?"</b></i>
-                    </p>
+                    <div style="background-color: #f8fafc; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+                        <p style="text-align: center; font-size: 1.2rem; line-height: 1.6; color: var(--primary); font-weight: 600;">
+                            "How can a fully distributed, resource-constrained IoT network running RPL autonomously detect simultaneous Sinkhole and Selective Forwarding attacks, quantify multi-dimensional node trustworthiness, collaboratively isolate malicious nodes without centralized authority, and enforce trust-aware routing decisions — all within the strict energy, memory, and CPU limits of IEEE 802.15.4 sensor nodes?"
+                        </p>
+                    </div>
                 </div>
 
                 <div class="card" style="margin-bottom: 2rem;">
                     <h2>Research Objectives</h2>
-                    <h3 style="color: var(--primary); margin-top: 1rem;">Main Objective:</h3>
-                    <p>To develop a lightweight trust management framework for IoT networks that enhances secure and reliable data transmission.</p>
-                    
-                    <h3 style="color: var(--primary); margin-top: 1.5rem;">Specific Objectives:</h3>
-                    <ul style="padding-left: 20px; color: var(--text); margin-top: 0.5rem;">
-                        <li>Design lightweight trust metrics (Residual Energy, Temperature, Historical Observation, Trust Accuracy)</li>
-                        <li>Develop an adaptive trust computation mechanism</li>
-                        <li>Implement energy-aware trust update scheduling</li>
-                        <li>Integrate trust into routing decisions (RPL-based)</li>
-                        <li>Evaluate performance using simulation tools (Cooja / Contiki-NG)</li>
-                    </ul>
+                    <table class="milestone-table" style="margin-top: 1rem;">
+                        <thead>
+                            <tr>
+                                <th style="width: 80px;">ID</th>
+                                <th>Objective Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center; font-weight: 700;">SO1</td>
+                                <td>Design and implement an <strong>energy-adaptive trust computation engine</strong> that evaluates node trustworthiness across four dimensions (link, energy, behavior, thermal) and adjusts frequency based on battery status.</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; font-weight: 700;">SO2</td>
+                                <td>Develop a <strong>lightweight, distributed IDS</strong> capable of simultaneously detecting Sinkhole and Selective Forwarding attacks using statistical metrics (PTI, SIS, CDFR) without machine learning.</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; font-weight: 700;">SO3</td>
+                                <td>Implement a <strong>distributed consensus-based isolation mechanism</strong> that requires multi-node agreement before blacklisting, with automatic recovery for sustained good behavior.</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; font-weight: 700;">SO4</td>
+                                <td>Design and integrate a <strong>custom RPL Objective Function (TS-OF)</strong> that replaces MRHOF and enforces trust-aware routing by incorporating trust scores into parent selection.</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; font-weight: 700;">SO5</td>
+                                <td><strong>Validate</strong> the framework in Contiki-NG + Cooja simulation, demonstrating >95% accuracy, <2% false positives, and >25% battery life extension.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
                 <div class="card" style="margin-bottom: 2rem;">
                     <h2>Methodology</h2>
-                    <p>The proposed system introduces a Trust Computation Engine (TCE) that evaluates node behavior using multiple lightweight metrics. Each node calculates a trust score based on factors such as residual energy, historical performance, and environmental conditions.</p>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Components at a Glance</h3>
+                    <table class="milestone-table" style="margin-bottom: 2rem;">
+                        <thead>
+                            <tr>
+                                <th style="width: 150px;">Component</th>
+                                <th>Technical Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Component 1</td><td>Trust Computation Engine</td></tr>
+                            <tr><td>Component 2</td><td>Lightweight IDS — Attack Detection</td></tr>
+                            <tr><td>Component 3</td><td>Distributed Isolation & Consensus Manager</td></tr>
+                            <tr><td>Component 4</td><td>Trust & Security-Aware RPL Routing (TS-OF)</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>The research follows an iterative, simulation-driven development methodology structured in four phases:</p>
                     
                     <div style="margin-top: 1.5rem;">
-                        <ul style="list-style: none; padding-left: 0;">
-                            <li style="margin-bottom: 1rem;">
-                                <strong>Metric Collection:</strong> Nodes monitor parameters such as energy usage, packet forwarding behavior, and temperature.
-                            </li>
-                            <li style="margin-bottom: 1rem;">
-                                <strong>Trust Calculation:</strong> A weighted formula is used to compute trust values dynamically.
-                            </li>
-                            <li style="margin-bottom: 1rem;">
-                                <strong>Adaptive Scheduling:</strong> Trust computation frequency is adjusted based on node energy levels to reduce overhead.
-                            </li>
-                            <li style="margin-bottom: 1rem;">
-                                <strong>Routing Integration:</strong> Trust values are incorporated into RPL routing decisions to avoid unreliable nodes.
-                            </li>
-                            <li style="margin-bottom: 1rem;">
-                                <strong>Simulation & Evaluation:</strong> The system is tested in Contiki-NG/Cooja to measure performance metrics such as Packet Delivery Ratio (PDR), latency, and energy consumption.
-                            </li>
-                        </ul>
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4 style="color: var(--secondary);">Phase 1 — Baseline Establishment</h4>
+                            <p>A reference RPL network was constructed in Cooja using 11 Contiki-NG motes with standard MRHOF. Baseline metrics (PDR, latency, rank distribution) were recorded to establish a performance reference.</p>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4 style="color: var(--secondary);">Phase 2 — Component Design and Implementation</h4>
+                            <p>Each component was designed independently with clear APIs and implemented in C. This included multi-metric scoring, statistical attack detection windows, node state machines, and the composite metric computation for TS-OF.</p>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4 style="color: var(--secondary);">Phase 3 — Integration</h4>
+                            <p>Components were integrated into a single process on every node, sharing a 10-second timer window. Communication was achieved through shared C variables, UDP multicast for consensus, and Contiki-NG compile-time RPL hooks.</p>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4 style="color: var(--secondary);">Phase 4 — Validation and Evaluation</h4>
+                            <p>Controlled attack scenarios were simulated (Sinkhole, Selective Forwarding, Dual Attacks). Performance was measured via TP/FP counters, Energest power tracking, and structured TSLOG analysis.</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="card">
                     <h2>Technologies Used</h2>
-                    <ul style="padding-left: 20px; color: var(--text); margin-top: 1rem;">
-                        <li><strong>Contiki-NG:</strong> IoT operating system for simulation</li>
-                        <li><strong>Cooja Simulator:</strong> Network simulation environment</li>
-                        <li><strong>C Programming:</strong> Implementation of trust algorithms</li>
-                        <li><strong>RPL Protocol:</strong> Routing protocol for IoT networks</li>
-                        <li><strong>Energest Module:</strong> Energy consumption tracking</li>
-                        <li><strong>Simple UDP:</strong> Communication between nodes</li>
-                    </ul>
+                    <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                        <div style="border: 1px solid #eee; padding: 1rem; border-radius: 8px;">
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Core Platform</h4>
+                            <p style="font-size: 0.9rem;">Contiki-NG v4.9+, Cooja Network Simulator, and Energest power tracking.</p>
+                        </div>
+                        <div style="border: 1px solid #eee; padding: 1rem; border-radius: 8px;">
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Networking</h4>
+                            <p style="font-size: 0.9rem;">RPL-Lite, TS-OF, IEEE 802.15.4, CSMA MAC, and 6LoWPAN.</p>
+                        </div>
+                        <div style="border: 1px solid #eee; padding: 1rem; border-radius: 8px;">
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Implementation</h4>
+                            <p style="font-size: 0.9rem;">Embedded C, GNU Make, ARM-GCC 13.x, Ubuntu / WSL2.</p>
+                        </div>
+                        <div style="border: 1px solid #eee; padding: 1rem; border-radius: 8px;">
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Analysis</h4>
+                            <p style="font-size: 0.9rem;">Python 3.12+, Matplotlib, Seaborn, Scikit-learn, and Git 2.43+.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
