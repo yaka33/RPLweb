@@ -29,58 +29,31 @@
             <div class="container">
                 <div class="card" style="margin-bottom: 2rem;">
                     <h2>Research Domain</h2>
-                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Internet of Things (IoT) Network Security
-                        - RPL Routing Protocol Trust Management</h3>
-                    <p>This research sits at the intersection of embedded systems security, wireless sensor network
-                        protocols, and distributed trust management. Specifically, it addresses security vulnerabilities
-                        in IPv6 Routing Protocol for Low-Power and Lossy Networks (RPL), the IETF-standardized routing
-                        protocol for IEEE 802.15.4 IoT networks, operating on resource-constrained nodes with as little
-                        as 32KB RAM and 8MHz CPU.</p>
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">System Optimization and Scalable Architecture</h3>
+                    <p>This research domain focuses on the development of highly efficient and scalable system architectures suitable for modern enterprise environments. It explores the integration of various system components, performance tuning, and the application of optimization algorithms to ensure maximum throughput and minimal resource usage.</p>
                 </div>
 
                 <div class="card" style="margin-bottom: 2rem;">
                     <h2>Literature Survey</h2>
-                    <p>Existing research on RPL security has largely followed two directions. The first involves
-                        cryptographic approaches using digital signatures or message authentication codes to verify
-                        routing advertisements. While effective, these approaches impose prohibitive computational and
-                        memory overhead on constrained IoT devices. The second direction explores trust-based routing
-                        extensions to RPL, where neighbor trust scores influence parent selection.</p>
-                    <p style="margin-top: 1rem;">Notable works include <strong>THC-RPL (Mushtaq et al., 2022)</strong>,
-                        which introduced lightweight trust-enabled routing against Sybil attacks, and <strong>Zhou et
-                            al. (2025)</strong>, who proposed a reliable trust objective function for RPL. Fuzzy logic
-                        approaches such as <strong>FSRW (Singh & Kaur, 2024)</strong> combined trust with optimization
-                        algorithms for healthcare IoT. In the intrusion detection space, <strong>Khan et al.
-                            (2023)</strong> surveyed computational intelligence techniques for WSN intrusion detection,
-                        while self-healing frameworks such as <strong>Antilizer (Mbarek et al., 2018)</strong> explored
-                        runtime security repair for wireless sensor networks.</p>
+                    <p>A review of current system management frameworks reveals several approaches to performance optimization. Some studies focus on low-level hardware optimizations, while others emphasize high-level software abstractions. Many existing solutions provide partial improvements but often fail to address the complexities of large-scale distributed systems.</p>
+                    <p style="margin-top: 1rem;">Recent publications, such as <strong>Framework Alpha (Smith et al., 2023)</strong> and <strong>Optimization Study (Doe et al., 2024)</strong>, have explored various facets of system scalability. However, there remains a significant need for a more holistic approach that combines performance, security, and ease of management into a single, unified framework.</p>
                     <p
                         style="margin-top: 1rem; border-left: 4px solid var(--accent); padding-left: 1rem; font-style: italic;">
-                        However, a critical gap persists: no existing lightweight framework simultaneously addresses
-                        trust computation, attack detection, distributed isolation, and trust-aware routing enforcement
-                        within a single, energy-adaptive, fully distributed architecture targeting Contiki-NG RPL
-                        networks.</p>
+                        The primary gap in current research is the lack of a comprehensive system that can dynamically adapt to varying workloads while maintaining high standards of security and reliability across diverse hardware configurations.</p>
                 </div>
 
                 <div class="card" style="margin-bottom: 2rem;">
                     <h2>Research Gap</h2>
                     <p>Current solutions for RPL security suffer from one or more of the following limitations:</p>
                     <ul style="padding-left: 20px; color: var(--text); margin-top: 1rem; line-height: 1.6;">
-                        <li><strong>Single Attack Focus</strong> - They address only one attack type (e.g., Sybil or
-                            Sinkhole) rather than simultaneous multi-vector attacks</li>
-                        <li><strong>Centralized Dependency</strong> - They require centralized components (base station
-                            or sink) that become single points of failure</li>
-                        <li><strong>Computational Intensity</strong> - They use ML-based detection that is
-                            computationally infeasible on nodes with 32KB RAM</li>
-                        <li><strong>Static Models</strong> - They apply static trust computations without considering
-                            real-time energy constraints or hardware health</li>
-                        <li><strong>Lack of Feedback Loop</strong> - Trust scores are computed but not fed back into the
-                            routing protocol's objective function</li>
-                        <li><strong>No Recovery Path</strong> - Once a node is penalised, there is no mechanism for it
-                            to return to a trusted status</li>
+                        <li><strong>Scalability Bottlenecks</strong> - Many systems struggle to maintain performance as the number of nodes increases.</li>
+                        <li><strong>Fragmented Security</strong> - Security measures are often added as afterthoughts rather than being integrated into the core architecture.</li>
+                        <li><strong>Inefficient Resource Usage</strong> - Current frameworks often require excessive memory and CPU power for routine tasks.</li>
+                        <li><strong>Lack of Adaptability</strong> - Systems frequently fail to adjust to real-time changes in workload or environment.</li>
+                        <li><strong>Complex Management</strong> - Configuration and maintenance of large-scale systems are often overly complicated.</li>
+                        <li><strong>Limited Monitoring</strong> - Real-time insights into system health and performance are frequently inadequate.</li>
                     </ul>
-                    <p style="margin-top: 1rem; font-weight: 600; color: var(--primary);">No existing work integrates
-                        multi-metric trust computation, statistical IDS, distributed consensus-based isolation, and a
-                        custom RPL Objective Function into a single, energy-adaptive, self-healing framework.</p>
+                    <p style="margin-top: 1rem; font-weight: 600; color: var(--primary);">There is a clear need for a unified framework that addresses these challenges through an integrated approach to optimization and management.</p>
                 </div>
 
                 <div class="card" style="margin-bottom: 2rem;">
@@ -89,11 +62,7 @@
                         style="background-color: #f8fafc; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0;">
                         <p
                             style="text-align: center; font-size: 1.2rem; line-height: 1.6; color: var(--primary); font-weight: 600;">
-                            "How can a fully distributed, resource-constrained IoT network running RPL autonomously
-                            detect simultaneous Sinkhole and Selective Forwarding attacks, quantify multi-dimensional
-                            node trustworthiness, collaboratively isolate malicious nodes without centralized authority,
-                            and enforce trust-aware routing decisions - all within the strict energy, memory, and CPU
-                            limits of IEEE 802.15.4 sensor nodes?"
+                            "How can we design a unified system architecture that optimizes resource allocation, ensures robust security, and maintains high performance in large-scale distributed environments while remaining adaptable to varying workloads and hardware constraints?"
                         </p>
                     </div>
                 </div>
@@ -110,33 +79,23 @@
                         <tbody>
                             <tr>
                                 <td style="text-align: center; font-weight: 700;">SO1</td>
-                                <td>Design and implement an <strong>energy-adaptive trust computation engine</strong>
-                                    that evaluates node trustworthiness across four dimensions (link, energy, behavior,
-                                    thermal) and adjusts frequency based on battery status.</td>
+                                <td>Design a <strong>modular system architecture</strong> that allows for easy integration of new optimization components.</td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; font-weight: 700;">SO2</td>
-                                <td>Develop a <strong>lightweight, distributed IDS</strong> capable of simultaneously
-                                    detecting Sinkhole and Selective Forwarding attacks using statistical metrics (PTI,
-                                    SIS, CDFR) without machine learning.</td>
+                                <td>Develop <strong>advanced monitoring tools</strong> to provide real-time insights into system performance and health.</td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; font-weight: 700;">SO3</td>
-                                <td>Implement a <strong>distributed consensus-based isolation mechanism</strong> that
-                                    requires multi-node agreement before blacklisting, with automatic recovery for
-                                    sustained good behavior.</td>
+                                <td>Implement <strong>efficient resource allocation algorithms</strong> to maximize system throughput and reduce latency.</td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; font-weight: 700;">SO4</td>
-                                <td>Design and integrate a <strong>custom RPL Objective Function (TS-OF)</strong> that
-                                    replaces MRHOF and enforces trust-aware routing by incorporating trust scores into
-                                    parent selection.</td>
+                                <td>Incorporate <strong>robust security measures</strong> into the core architecture to protect against modern threats.</td>
                             </tr>
                             <tr>
                                 <td style="text-align: center; font-weight: 700;">SO5</td>
-                                <td><strong>Validate</strong> the framework in Contiki-NG + Cooja simulation,
-                                    demonstrating >95% accuracy, <2% false positives, and>25% battery life extension.
-                                </td>
+                                <td><strong>Validate</strong> the proposed framework through extensive testing in diverse enterprise-grade environments.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -155,19 +114,19 @@
                         <tbody>
                             <tr>
                                 <td>Component 1</td>
-                                <td>Trust Computation Engine</td>
+                                <td>System Management Module</td>
                             </tr>
                             <tr>
                                 <td>Component 2</td>
-                                <td>Lightweight IDS - Attack Detection</td>
+                                <td>Performance Monitoring Engine</td>
                             </tr>
                             <tr>
                                 <td>Component 3</td>
-                                <td>Distributed Isolation & Consensus Manager</td>
+                                <td>Security and Access Controller</td>
                             </tr>
                             <tr>
                                 <td>Component 4</td>
-                                <td>Trust & Security-Aware RPL Routing (TS-OF)</td>
+                                <td>Resource Optimization Handler</td>
                             </tr>
                         </tbody>
                     </table>
@@ -177,28 +136,20 @@
 
                     <div style="margin-top: 1.5rem;">
                         <div style="margin-bottom: 1.5rem;">
-                            <h4 style="color: var(--secondary);">Phase 1 : Baseline Establishment</h4>
-                            <p>A reference RPL network was constructed in Cooja using 11 Contiki-NG motes with standard
-                                MRHOF. Baseline metrics (PDR, latency, rank distribution) were recorded to establish a
-                                performance reference.</p>
+                            <h4 style="color: var(--secondary);">Phase 1 : Requirement Analysis</h4>
+                            <p>Conducted a detailed analysis of current system constraints and identified key areas for optimization and performance enhancement.</p>
                         </div>
                         <div style="margin-bottom: 1.5rem;">
-                            <h4 style="color: var(--secondary);">Phase 2 : Component Design and Implementation</h4>
-                            <p>Each component was designed independently with clear APIs and implemented in C. This
-                                included multi-metric scoring, statistical attack detection windows, node state
-                                machines, and the composite metric computation for TS-OF.</p>
+                            <h4 style="color: var(--secondary);">Phase 2 : System Design</h4>
+                            <p>Designed the core architecture of the proposed framework, including all modules and their respective communication interfaces.</p>
                         </div>
                         <div style="margin-bottom: 1.5rem;">
-                            <h4 style="color: var(--secondary);">Phase 3 : Integration</h4>
-                            <p>Components were integrated into a single process on every node, sharing a 10-second timer
-                                window. Communication was achieved through shared C variables, UDP multicast for
-                                consensus, and Contiki-NG compile-time RPL hooks.</p>
+                            <h4 style="color: var(--secondary);">Phase 3 : Implementation</h4>
+                            <p>Implemented the system modules using industry-standard programming languages and frameworks, ensuring high quality and reliability.</p>
                         </div>
                         <div style="margin-bottom: 1.5rem;">
-                            <h4 style="color: var(--secondary);">Phase 4 : Validation and Evaluation</h4>
-                            <p>Controlled attack scenarios were simulated (Sinkhole, Selective Forwarding, Dual
-                                Attacks). Performance was measured via TP/FP counters, Energest power tracking, and
-                                structured TSLOG analysis.</p>
+                            <h4 style="color: var(--secondary);">Phase 4 : Testing and Deployment</h4>
+                            <p>Performed rigorous testing to validate the framework's performance and security before final deployment in a production environment.</p>
                         </div>
                     </div>
                 </div>
@@ -208,22 +159,20 @@
                     <div class="card-grid"
                         style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
                         <div style="border: 1px solid #eee; padding: 1rem; border-radius: 8px;">
-                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Core Platform</h4>
-                            <p style="font-size: 0.9rem;">Contiki-NG v4.9+, Cooja Network Simulator, and Energest power
-                                tracking.</p>
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Development Stack</h4>
+                            <p style="font-size: 0.9rem;">Enterprise OS distributions, Containerization platforms, and CI/CD tools.</p>
                         </div>
                         <div style="border: 1px solid #eee; padding: 1rem; border-radius: 8px;">
-                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Networking</h4>
-                            <p style="font-size: 0.9rem;">RPL-Lite, TS-OF, IEEE 802.15.4, CSMA MAC, and 6LoWPAN.</p>
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Communication</h4>
+                            <p style="font-size: 0.9rem;">RESTful APIs, Message Queues, and standard networking protocols.</p>
                         </div>
                         <div style="border: 1px solid #eee; padding: 1rem; border-radius: 8px;">
-                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Implementation</h4>
-                            <p style="font-size: 0.9rem;">Embedded C, GNU Make, ARM-GCC 13.x, Ubuntu / WSL2.</p>
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Core Languages</h4>
+                            <p style="font-size: 0.9rem;">Modern C++, Python, and Shell Scripting for automation.</p>
                         </div>
                         <div style="border: 1px solid #eee; padding: 1rem; border-radius: 8px;">
-                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Analysis</h4>
-                            <p style="font-size: 0.9rem;">Python 3.12+, Matplotlib, Seaborn, Scikit-learn, and Git
-                                2.43+.</p>
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Monitoring Tools</h4>
+                            <p style="font-size: 0.9rem;">Performance dashboards, Logging frameworks, and Data visualization libraries.</p>
                         </div>
                     </div>
                 </div>
